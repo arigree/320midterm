@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Now!</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div id="shop">
+      <h1>Shop Our Goods!</h1>
+      <section class="product-grid">
+        <div class="product">
+          <img src="images/file.jpg" alt="first product" />
+          <h3>Thats something!</h3>
+          <p class="price">$10.99</p>
+          <p>Surely it has value to someone</p>
+          <button class="add-to-cart" data-name="A thing!" data-price="10.99">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product">
+          <img src="images/fit.webp" alt="second product" />
+          <h3>Pants</h3>
+          <p class="price">$15.49</p>
+          <p>Wow look at those... khakis?</p>
+          <button
+            class="add-to-cart"
+            data-name="Thats a choice"
+            data-price="15.49"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product">
+          <img src="images/nobark.webp" alt="no bark from fall out new vegas" />
+          <h3>Dinenr with No-Bark</h3>
+          <p class="price">$20.00</p>
+          <p>He has some stories</p>
+          <button class="add-to-cart" data-name="Date Night" data-price="20.00">
+            Add to Cart
+          </button>
+        </div>
+      </section>
+
+      <section class="invoice-section">
+        <h2>Invoice Details</h2>
+        <input type="text" id="user-name" placeholder="Enter your name" />
+        <input type="email" id="user-email" placeholder="Enter your email" />
+        <button id="view-invoice" disabled>View Invoice</button>
+        <button id="download-invoice" disabled>Download Invoice</button>
+      </section>
+      <section>
+        <iframe
+          id="pdf-preview"
+          src=""
+          frameborder="0"
+          width="100%"
+          height="500px"
+        ></iframe>
+      </section>
+    </div>
+    <script type="module" src="js/shop.js"></script>
+  </body>
+</html>

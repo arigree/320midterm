@@ -31,24 +31,32 @@ function app(req, res) {
       else if (fs.existsSync(checkHtml)) filePathToUse = checkHtml;
     }
 
-    res.write(fs.readFileSync(filePathToUse));
-  } else {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.write(
-      JSON.stringify({
-        msg: "Success",
-        path: req.url,
-        method: req.method,
-      })
-    );
+    fs.readFile(filePathToUse, (err, data) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "text/html" });
+          res.write("<h1>Server Error</h1>");
+        } else {
+          res.write(data);
+        }
+        res.end();
+      });
+    } else {
+     
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.write(
+        JSON.stringify({
+          msg: "Success",
+          path: req.url,
+          method: req.method,
+        })
+      );
+      res.end();
+    }
   }
-
-  res.end();
-}
 
 const server = http.createServer(app);
 
-const port = process.env.PORT || 5445; // 3000, 3001,
+const port = process.env.PORT || 5445;
 
 server.listen(port);
 console.log(`Hosted at: http://localhost:${port}`)
